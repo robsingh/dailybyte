@@ -6,7 +6,6 @@
    the underlying data representation. 
 '''
 """Example: Deque"""
-
 '''from collections import deque
 d = deque("robin")
 for elem in d:
@@ -99,8 +98,6 @@ class MinStack:
             print("Stack Underflow")
             return -1
         return self.aux[-1]
-
-
 
 
 if __name__ == "__main__":
