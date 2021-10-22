@@ -54,7 +54,6 @@ Min - Top of aux stack always return the min element since we are
 from collections import deque
 
 class MinStack:
-    #constructor method
     def __init__(self):
         self.s = deque() #main stack to store elements
         self.aux = deque() #aux stack to store minimum elements
@@ -67,7 +66,7 @@ class MinStack:
             self.aux.append(x)
 
         else:    #push the given element to aux stack if it is less than or equal to the current minimum
-            if self.aux[-1] >= x:
+            if self.aux[-1] <= x:
                 self.aux.append(x) 
 
     
@@ -129,8 +128,6 @@ if __name__ == "__main__":
 
     s.pop()
     print(s.min())
-
-    print(len())
 
 
 
