@@ -6,10 +6,8 @@ the array, and must return False if every element is distinct.
 
 """Brute Force approach O(N^2)"""
 
-
-
-class Solution:
-    def check_Duplicate(self,num):
+class Final:
+    def check_duplicates(self,num):
         for i in range(len(num)):
             for j in range(0,i):
                 if num[i] == num[j]:
@@ -17,7 +15,6 @@ class Solution:
         return False
 
 
-check = Solution()
-print(check.check_Duplicate([0,0]))
-
+check = Final()
+print(check.check_duplicates([1,2,3,3]))
 
