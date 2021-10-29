@@ -18,6 +18,6 @@ class Solution:
 
 
 check = Solution()
-print(check.check_Duplicate([1,2,4,4]))
+print(check.check_Duplicate([0,0]))
 
 
