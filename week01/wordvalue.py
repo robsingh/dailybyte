@@ -38,4 +38,6 @@ def max_word_value(words=None):
 
 
 if __name__ == "__main__":
+    print(calc_word_value(word="benzalphenylhydrazone"))
+    print(max_word_value(words="wrigglingly"))
     unittest.main() #run unittests to validate
