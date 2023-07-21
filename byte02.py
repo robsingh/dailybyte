@@ -13,8 +13,22 @@ Python built-ins will be very useful for solving these problems in very concise 
 
 """
 
-def shortest_first(names):
-    pass
+from typing import List
+
+def shortest_first(names: List):
+    # title casing and removing duplicates
+    title_case_unique = list(set(name.title() for name in names))
+
+    # sorting the surnames in descending order
+    sorted_names = sorted(title_case_unique, key=lambda name:name.split()[-1], reverse=True)
+    
+    # shortest first name
+    first_names = [name.split()[0] for name in sorted_names]
+    shortest_name = min(first_names, key=len)
+
+    return shortest_name
 
 
-names = ["Rob Singh", "Tom Harward", "Jim Liam", "Tim Cook"]
+
+names = ["rob singh", "tomy harward", "jimyy liam", "timi cook", "robu singh"]
+print(shortest_first(names))
