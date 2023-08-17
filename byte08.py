@@ -1,0 +1,23 @@
+"""
+A dictionary comprehension is like a list comprehension, but it constructs a dict instead of a list. 
+They are convenient to quickly operate on each (key, value) pair of a dict. And often in one line of code, maybe two after checking PEP8 ;)
+
+We think they are elegant, that's why we want you to know about them!
+
+In this Bite you are given a dict and a set. Write a dictionary comprehension that filters out the items in the set and returns the resulting dict, 
+so if your dict is {1: 'bob', 2: 'julian', 3: 'tim'} and your set is {2, 3}, the resulting dict would be {1: 'bob'}.
+
+Check out the tests for more details. Have fun!
+
+"""
+dict_sample = {1: 'bob', 2: 'julian', 3: 'tim'}
+set_sample = {2, 3}
+
+#o/p - {1:'bob}
+
+# for key,value in dict_sample.items():
+#     if key not in set_sample:
+#         print (key,value)
+
+newdict = {key:value for key,value in dict_sample.items() if key not in set_sample}
+print(newdict)
