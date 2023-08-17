@@ -13,11 +13,6 @@ Check out the tests for more details. Have fun!
 dict_sample = {1: 'bob', 2: 'julian', 3: 'tim'}
 set_sample = {2, 3}
 
-#o/p - {1:'bob}
-
-# for key,value in dict_sample.items():
-#     if key not in set_sample:
-#         print (key,value)
 
 newdict = {key:value for key,value in dict_sample.items() if key not in set_sample}
 print(newdict)
