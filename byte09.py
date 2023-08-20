@@ -33,3 +33,32 @@ def get_index_diff_char(chars:List):
 
 chars = ['.', '{', ' ^', '%', 'a']
 print(get_index_diff_char(chars))
+
+#another method
+
+
+def is_alphanumeric(char):
+    return char.isalnum() if isinstance(char, str) else False
+
+
+def get_index(chars):
+    alpha_count = 0
+    non_alpha_count = 0
+    alpha_index = -1
+    non_alpha_index = -1
+
+    for i,char in enumerate(chars):
+        if is_alphanumeric(char):
+            alpha_count += 1
+            alpha_index = i
+        else:
+            non_alpha_count += 1
+            non_alpha_index = i
+
+    if alpha_count == 1:
+        return alpha_index
+    else:
+        return non_alpha_index
+
+chars_list = ['a', '1', '@', '.','b']
+print(get_index(chars_list))
