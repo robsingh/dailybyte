@@ -14,8 +14,10 @@ def get_tags():
     """Find all tags (TAG_HTML) in RSS_FEED.
     Replace dash with whitespace.
     Hint: use TAG_HTML.findall"""
-    pass
-
+    with open(RSS_FEED, 'r', encoding='utf-8') as file:
+        rss_content = file.read()
+    tags = TAG_HTML.findall(rss_content)
+    return [tag.replace('-', ' ') for tag in tags]
 
 def get_top_tags(tags):
     """Get the TOP_NUMBER of most common tags
@@ -33,6 +35,7 @@ def get_similarities(tags):
 
 if __name__ == "__main__":
     tags = get_tags()
+    print(tags)
     top_tags = get_top_tags(tags)
     print('* Top {} tags:'.format(TOP_NUMBER))
     for tag, count in top_tags:
