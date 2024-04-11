@@ -50,10 +50,10 @@ def calc_mean_score(movies):
     return round(total_score / len(movies), 1)
 
 
-def get_average_scores(directors, min_movies=4):
+def get_average_scores(directors, MIN_MOVIES):
     director_scores = []
     for director, movies in directors.items():
-        if len(movies) >= min_movies:
+        if len(movies) >= MIN_MOVIES:
             average_rating = calc_mean_score(movies)
             director_scores.append((director, average_rating))
     director_scores.sort(key=lambda x: x[1], reverse=True)
