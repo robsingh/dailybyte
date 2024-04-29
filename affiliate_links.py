@@ -21,9 +21,8 @@ import re
 
 def generate_affiliate_links(url):
     # Extracting the ASIN (Amazon Standarad Identification number) from the URL
+    # w+ finds the first alphanumeric character and check the next character, repeats until you run into a non-alphanumeric character.
     match = re.search(r'/dp/(\w+)', url)
-    # print(match)
-
     if match:
         asin = match.group(1)
         affiliation_link = f"http://www.amazon.com/dp/{asin}/?tag=pyb0f-20"
