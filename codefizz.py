@@ -10,7 +10,7 @@ Complete the fizzbuzz function below, it should take a number and return the rig
 
 """
 
-def fizzbuzz(number) -> str or int:
+def fizzbuzz(number):
     if number % 3 == 0 and number % 5 == 0:
         return "Fizz Buzz"
     elif number % 3 == 0:
