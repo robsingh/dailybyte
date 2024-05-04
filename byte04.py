@@ -22,7 +22,7 @@ from typing import List
 
 def printing_sequence(names:List, countries:List):
     for idx, (name, country) in enumerate(zip(names, countries), start=1):
-        print(f"{idx}. {name:11} {country}")
+        print(f"{idx}. {name:11}{country}")
 
 
 
