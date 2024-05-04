@@ -6,20 +6,20 @@ Add a property called expired which returns a boolean value indicating whether t
 expired or not.
 
 """
-from datetime import datetime
+import datetime
 
 class Promo:
-    def __init__(self,name:str, expires):
+    def __init__(self,name:str, expires:datetime.datetime):
         self.name = name
         self.expires = expires
 
     @property
-    def expired(self):
-        return datetime.now() > self.expires
+    def expired(self) -> bool:
+        return datetime.datetime.now() > self.expires
     
 
-promo1 = Promo("Summer Sale", datetime(2023, 8, 31))
-promo2 = Promo("Back to School", datetime(2023, 9, 15))
+promo1 = Promo("Summer Sale", datetime.datetime(2023, 8, 31))
+promo2 = Promo("Back to School", datetime.datetime(2023, 9, 15))
 
 
 print(f"{promo1.name} has expired: {promo1.expired}")
