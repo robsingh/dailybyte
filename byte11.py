@@ -14,7 +14,9 @@ return 2 (we've gone two directories deeper, so we must go backwards two directo
 Ex: Given the following commands…
 
 commands = ["a/", "../"], return 0.
-
-
-
 '''
+
+def 
+
+
+
