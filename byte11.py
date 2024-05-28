@@ -1,7 +1,7 @@
 '''
 You are on the command line of a computer in the root directory and given a list of commands to run. 
 The commands consist of three possible operations, 
-../ which brings you to the parent directory (or nowhere if you’re already in the root directory), 
+../ which brings you to the parent directory (or nowhere if you are already in the root directory), 
 ./ which keeps you in the current directory, 
 and directory_name/ which moves you to a new directory with the specified name (these named directories are guaranteed to always exist). 
 After running all the commands, return the amount of commands required to bring you back to the root directory.
@@ -16,7 +16,18 @@ Ex: Given the following commands…
 commands = ["a/", "../"], return 0.
 '''
 
-def 
+from typing import List
+def count_commands(commands:List) -> int:
+    stack = []
+    for command in commands:
+        if command == "../":
+            if stack:
+                stack.pop()
+        elif command == "./":
+            continue
+        else:
+            stack.append(command)
+    return len(stack)
 
-
-
+commands = ["a/", "b/"]
+print(count_commands(commands))
