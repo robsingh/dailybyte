@@ -2,7 +2,7 @@ import csv
 import os
 import tweepy
 from collections import namedtuple
-from config import BEARER_TOKEN  # You will need to use a bearer token for v2 API
+from config import BEARER_TOKEN
 
 DEST_DIR = 'data'
 EXT = 'csv'
@@ -11,7 +11,6 @@ NUM_TWEETS = 100
 Tweet = namedtuple('Tweet', ['id', 'created_at', 'text'])
 
 class UserTweets(object):
-
     def __init__(self, handle, max_id=None):
         """Use tweepy.Client with bearer token to create API interface for Twitter v2."""
         self.handle = handle
