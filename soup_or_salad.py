@@ -42,7 +42,7 @@ def choice(customers, sides):
             # reset rounds_without_serving since we served someone
             rounds_without_serving = 0
         else:
-            # customers go back to the queue
+            # customers goes to the back of the queue
             customers.append(customers.popleft())
             rounds_without_serving += 1
 
