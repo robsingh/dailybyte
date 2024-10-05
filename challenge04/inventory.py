@@ -36,11 +36,40 @@ house_inventory = {
     }
 }
 
+# function to print the inventory
 def print_inventory(inventory):
     for room, items in inventory.items():
         print(f"\n{room}:")
         for item,value in items.items():
             print(f"    {item}: ${value}")
 
+# function to add an item to a room
+def add_item_to_room(inventory, room, item, value):
+    if room in inventory:
+        inventory[room][item] = value
+        print(f"\nAdded {item} with ${value} to {room}.")
+    else:
+        print(f"Room {room} not found in the inventory!")
 
+# function to remove an item from a room
+def remove_item_from_room(inventory, room, item):
+    if room in inventory:
+        if item in inventory[room]:
+            del inventory[room][item]
+            print(f"\nRemoved {item} from {room}.")
+        else:
+            print(f"Item '{item}' not found in {room}.")
+    else:
+        print(f"Room {room} not found in the inventory!")
+
+
+print("Initial Inventory:")
 print_inventory(house_inventory)
+
+add_item_to_room(house_inventory, "Living Room", "Painting", 250)
+
+remove_item_from_room(house_inventory, "Bedroom", "Chair")
+
+print("\nUpdated Inventory:")
+print_inventory(house_inventory)
+
