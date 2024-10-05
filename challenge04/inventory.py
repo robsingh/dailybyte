@@ -1,42 +1,17 @@
-house_inventory = {
-    "Living Room": {
-        "TV": 400,
-        "Couch": 800,
-        "Coffee Table": 150,
-        "Bookshelf": 200,
-        "Lamp": 50
-    },
-    "Bedroom": {
-        "Bed": 1000,
-        "Wardrobe": 500,
-        "Desk": 250,
-        "Chair": 100,
-        "Nightstand": 75
-    },
-    "Kitchen": {
-        "Fridge": 1200,
-        "Microwave": 150,
-        "Oven": 800,
-        "Dining Table": 600,
-        "Chair": 100
-    },
-    "Bathroom": {
-        "Shower": 700,
-        "Toilet": 300,
-        "Sink": 150,
-        "Cabinet": 200,
-        "Mirror": 100
-    },
-    "Study": {
-        "Computer": 1200,
-        "Desk": 500,
-        "Chair": 200,
-        "Bookshelf": 300,
-        "Lamp": 75
-    }
-}
+import json
 
-# function to print the inventory
+# Load the inventory
+def load_inventory_from_json(filename):
+    try:
+        with open(filename, 'r') as file:
+            inventory = json.load(file)
+        return inventory
+    
+    except FileNotFoundError:
+        print(f"{filename} not found! Please verify the path again.")
+
+
+# Print the inventory
 def print_inventory(inventory):
     for room, items in inventory.items():
         print(f"\n{room}:")
@@ -51,7 +26,7 @@ def add_item_to_room(inventory, room, item, value):
     else:
         print(f"Room {room} not found in the inventory!")
 
-# function to remove an item from a room
+# # function to remove an item from a room
 def remove_item_from_room(inventory, room, item):
     if room in inventory:
         if item in inventory[room]:
@@ -63,13 +38,16 @@ def remove_item_from_room(inventory, room, item):
         print(f"Room {room} not found in the inventory!")
 
 
+# load the inventory
+inventory = load_inventory_from_json(filename='house_inventory.json')
+
 print("Initial Inventory:")
-print_inventory(house_inventory)
+print_inventory(inventory)
 
-add_item_to_room(house_inventory, "Living Room", "Painting", 250)
+add_item_to_room(inventory, "Living Room", "Painting", 250)
 
-remove_item_from_room(house_inventory, "Bedroom", "Chair")
+remove_item_from_room(inventory, "Bedroom", "Chair")
 
 print("\nUpdated Inventory:")
-print_inventory(house_inventory)
+print_inventory(inventory)
 
