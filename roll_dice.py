@@ -14,17 +14,17 @@ N = 2, max = 6, target = 4, return 3.
 '''
 #Dynamic Programming
 def dice_roll(N:int, max:int, target:int) -> int:
-    MOD = 10**9 + 7
+    MOD = 10**9 + 7 # to avoid overflow when results gets large
     dp = [0] * (target+1)
-    dp[0] = 1 # base case
+    dp[0] = 1 # base case to reach a sum of 0 with zero dice (by not rolling a dice, obviously!)
 
     for i in range(1, N+1):
-        new_dp = [0] * (target+1)
+        new_dp = [0] * (target+1) # need this because, it will avoid overwriting current values
         for j in range(1, target+1): # for each possible target sum
             for k in range(1, max+1): # for each face value
                 if j-k >= 0:
                     new_dp[j] = (new_dp[j] + dp[j-k]) % MOD
-        dp = new_dp #move to the next dice count
+        dp = new_dp #move to the next dice count, once we finish processing a die, we don't need the previous values in dp anymore.
 
     return dp[target]
 
