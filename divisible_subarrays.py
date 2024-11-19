@@ -33,12 +33,8 @@ def div_subarrays(nums: List, k:int):
 
         # update the frequency
         remainder_count[remainder] += 1
-
-        print(remainder)
-        print(remainder_count)
     
     return count
-
 
 nums = [1,3,1,2,5]
 k = 7
