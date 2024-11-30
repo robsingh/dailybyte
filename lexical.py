@@ -22,3 +22,8 @@ def lexical_order(N:int):
 
 N = 20
 print(lexical_order(N))
+
+'''scope for further improvement:
+if N is very large, operations such as string conversion and sorting could be slow.
+How can I implement this in a different way? 
+'''
